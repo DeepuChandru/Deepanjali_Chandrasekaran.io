@@ -194,7 +194,7 @@ textarea {
   color: #fff;
     background: linear-gradient(to left, rgba(50, 64, 78, 0.8), rgba(3, 40, 74, 0.8));
     background-position: center;
-    height: 80vh;
+    height: 90vh;
     position: relative;
   }
   @media only screen and (max-width: 37.5em) {
@@ -251,7 +251,7 @@ textarea {
 
   .home-hero__content {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%; 
