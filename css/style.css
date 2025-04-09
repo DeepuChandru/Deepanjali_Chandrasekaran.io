@@ -1,5 +1,3 @@
-
-
 /* -----------------------------------
    General Layout
 ----------------------------------- */
@@ -35,6 +33,7 @@
     padding: 0 1rem;
   }
 }
+
 /* -----------------------------------
    About Paragraph Text
 ----------------------------------- */
@@ -523,6 +522,8 @@ textarea {
 
   .home-hero__content {
       max-width: 90%;
+      text-align: center;
+      align-items: center;
   }
   .home-hero__social-icon {
     width: 40px;
@@ -713,7 +714,7 @@ textarea {
   display: inline-block;
   white-space: nowrap;              
   background-color:rgb(204, 221, 20);
-  color: #444;
+  color: #000000;
   font-weight: 600;
   font-size: 16px; 
   padding: 3px 25px;
@@ -721,6 +722,20 @@ textarea {
   margin-left: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
+
+.completion-date_exp {
+  display: inline-block;
+  white-space: nowrap;              
+  background-color:rgb(204, 221, 20);
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px; 
+  padding: 3px 25px;
+  border-radius: 20px;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
 
 
 /* -----------------------*/
@@ -731,9 +746,9 @@ textarea {
   display: inline-block;
   white-space: nowrap;              
   background-color:rgb(204, 221, 20);
-  color: #444;
+  color: #000000;
   font-weight: 600;
-  font-size: 16px; 
+  font-size: 14px; 
   padding: 3px 25px;
   border-radius: 20px;
   margin-left: 10px;
@@ -798,7 +813,7 @@ textarea {
   display: inline-block;
   white-space: nowrap;              
   background-color:rgb(204, 221, 20);
-  color: #444;
+  color: #000000;
   font-weight: 600;
   font-size: 14px; 
   padding: 3px 18px;
@@ -816,61 +831,10 @@ textarea {
   text-decoration: underline;
 }
 
-  
-
-.completion-date-projects {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgb(204, 221, 20);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: #000;
-  font-weight: 600;
-}
-
-/* Optional: Add different colors for each section’s side bar */
-#publications h4[style*="BOOK CHAPTERS"] ~ ul li {
-  border-left-color: #ff9800;
-}
-#publications h4[style*="JOURNAL PAPERS"] ~ ul li {
-  border-left-color: #2196f3;
-}
-#publications h4[style*="ARTICLES"] ~ ul li {
-  border-left-color: #4caf50;
-}
-#publications h4[style*="BOOKS"] ~ ul li {
-  border-left-color: #9c27b0;
-}
-
 .project-link:hover {
   color: rgb(204, 221, 20);
   text-decoration: underline;
 }
-
-/* ----- PATENTS ----- */
-li.patent_info {
-  margin-bottom: 15px;
-  list-style-position: outside;
-}
-
-.patent_info h4 {
-  font-weight: 700;
-  color: rgb(1, 78, 133);
-  margin: 0;
-}
-
-.patent_info .completion-date-projects {
-  color: #686868 ;
-  font-weight: 500;
-  margin-left: 8px;
-}
-
-.patent_info p {
-  margin: 4px 0 0 0;
-}
-
 
  /* LINES*/
  .add_line {
