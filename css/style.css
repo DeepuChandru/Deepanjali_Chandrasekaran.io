@@ -21,6 +21,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .main-container {
+    width: 95%;
+    padding: 0 1.2rem;
+  }
+}
+
+/* Extra small devices (e.g. phones < 400px wide) */
+@media (max-width: 400px) {
+  .main-container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
 /* -----------------------------------
    About Paragraph Text
 ----------------------------------- */
