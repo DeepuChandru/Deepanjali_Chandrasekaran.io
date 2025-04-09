@@ -69,36 +69,6 @@
     </div>
   </div>
 </header>
-
-<script>
-  const hamMenu = document.querySelector('.header__main-ham-menu');
-  const closeMenu = document.querySelector('.header__main-ham-menu-close');
-  const smMenu = document.querySelector('.header__sm-menu');
-  const smMenuLinks = document.querySelectorAll('.header__sm-menu-link a');
-
-  hamMenu.addEventListener('click', () => {
-    smMenu.classList.add('header__sm-menu--active');
-    hamMenu.classList.add('d-none');
-    closeMenu.classList.remove('d-none');
-  });
-
-  closeMenu.addEventListener('click', () => {
-    smMenu.classList.remove('header__sm-menu--active');
-    hamMenu.classList.remove('d-none');
-    closeMenu.classList.add('d-none');
-  });
-
-  // When any link inside mobile menu is clicked, close the menu
-  smMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      smMenu.classList.remove('header__sm-menu--active');
-      hamMenu.classList.remove('d-none');
-      closeMenu.classList.add('d-none');
-    });
-  });
-</script>
-
-
     <section class="home-hero">
       <div class="container">
         <div class="bg"></div>
@@ -138,19 +108,6 @@
       </div>
   </section>
   
-
-  <!-- Typed.js script -->
-  <script type="text/javascript">
-      var typed = new Typed('.typing', {
-          strings: ["Data Analyst","Data Scientist", "AI Enthusiast","Software Engineer"],
-          typeSpeed: 80,  
-          backSpeed: 50,  
-          loop: true,  
-          showCursor: true, 
-          cursorChar: "|",  
-          smartBackspace: true
-      });
-  </script>
 
 <!--**********************************-->
 <!--          ABOUT SECTION           -->
@@ -665,21 +622,6 @@
     <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
   </svg>
 </a>
- 
-    
-
-<script>
-  const backToTop = document.getElementById('backToTop');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTop.style.opacity = '1';
-      backToTop.style.pointerEvents = 'auto';
-    } else {
-      backToTop.style.opacity = '0';
-      backToTop.style.pointerEvents = 'none';
-    }
-  });
-</script>
+<script src="index.js"></script>
   </body>
 </html>
