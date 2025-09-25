@@ -710,6 +710,17 @@ textarea {
   text-decoration: underline;
 }
 
+.achievement-title a {
+  color: rgb(1, 78, 133);   /* default link color */
+  text-decoration: none;    /* no underline initially */
+}
+
+.achievement-title a:hover {
+  color: #014e85;           /* darker blue on hover */
+  text-decoration: underline;
+}
+
+
 .completion-date {
   display: inline-block;
   white-space: nowrap;              
