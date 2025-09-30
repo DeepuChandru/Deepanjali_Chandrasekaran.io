@@ -1267,3 +1267,106 @@ textarea {
 .d-none {
   display: none;
 }
+
+
+ .exp-cards { display: grid; gap: 16px; }
+
+/* Card shell */
+.exp-card {
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border-left: 6px solid #c8e400;
+  overflow: hidden;
+}
+
+/* Summary row */
+.exp-card > details > summary.exp-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* text | date | arrow */
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.exp-card summary.exp-header::-webkit-details-marker { display: none; }
+
+/* Keyboard focus */
+.exp-card summary.exp-header:focus-visible {
+  outline: 3px solid #014e85;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Titles */
+.exp-title {
+  margin: 0;
+  color: #014e85;
+  font-weight: 800;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+
+/* Role as subtle caption */
+.role-title {
+  margin: 2px 0 6px;
+  font-size: 16px;
+  color: #222;
+  opacity: .8;
+  font-weight: 700;
+}
+
+/* Tech line in summary */
+.exp-tech { margin: 0; font-size: 15px; }
+
+/* Date pill */
+.exp-date {
+  background: #c8e400;
+  color: #0b0b0b;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 14px; 
+}
+
+/* Right arrow: larger hit area + rotation */
+.chev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #014e85;
+  transform: rotate(0deg);
+  transition: transform .18s ease;
+}
+details[open] .chev { transform: rotate(90deg); }
+
+/* Body */
+.exp-body {
+  padding: 6px 22px 18px;
+  color: #121212;
+  font-size: 16px;
+  line-height: 1.6;
+  border-top: 1px solid #eee; /* subtle divider */
+}
+.exp-body ul {
+  margin: 10px 0 0;
+  padding-left: 22px; /* safer than margin-left for bullets */
+}
+
+/* Responsive: stack date + arrow under text on narrow screens */
+@media (max-width: 720px) {
+  .exp-card > details > summary.exp-header {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "text text"
+      "date arrow";
+    row-gap: 8px;
+  }
+  .exp-card > details > summary.exp-header > div { grid-area: text; }
+  .exp-date { grid-area: date; }
+  .chev { grid-area: arrow; justify-self: end; }
+}
