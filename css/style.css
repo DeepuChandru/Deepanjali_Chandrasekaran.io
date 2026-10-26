@@ -138,11 +138,13 @@ ul, ol { list-style: none; }
 .btn--ghost:hover { border-color: var(--ink-3); background: var(--surface-2); }
 
 .icon-btn {
-  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid var(--line); color: var(--ink-2);
-  transition: color 0.2s, border-color 0.2s;
+  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--line-strong); color: var(--ink);
+  box-shadow: 0 1px 3px rgba(18, 17, 43, 0.08);
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
 }
-.icon-btn:hover { color: var(--ink); border-color: var(--line-strong); }
+.icon-btn:hover { border-color: var(--ink-3); }
+.icon-btn:active { transform: scale(0.95); }
 .i-moon { display: none; }
 :root[data-theme="dark"] .i-moon { display: block; }
 :root[data-theme="dark"] .i-sun { display: none; }
@@ -176,7 +178,7 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
 .nav__link:hover { color: var(--ink); }
 .nav__link.is-active { color: var(--hl-ink); background: var(--hl-bg); font-weight: 500; }
 .nav__actions { display: flex; align-items: center; gap: 8px; }
-.nav__burger { display: none; flex-direction: column; gap: 5px; }
+.nav__burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
 .nav__burger span { display: block; width: 14px; height: 1.5px; background: currentColor; transition: transform 0.4s var(--ease); }
 .nav__burger[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
 .nav__burger[aria-expanded="true"] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
@@ -203,7 +205,13 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
   .nav__links { display: none; }
   .nav__burger { display: flex; }
 }
-@media (max-width: 480px) {
+@media (max-width: 560px) {
+  /* Contact lives in the menu on phones; keep the bar to logo · theme · menu */
+  .nav__actions .btn--sm { display: none; }
+  .nav__inner { height: 60px; }
+  .mobile-menu { inset: 60px 0 0; }
+}
+@media (max-width: 360px) {
   .nav__name { display: none; }
 }
 
@@ -239,9 +247,9 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
 
 .hero__title {
   margin-top: 28px;
-  font-size: clamp(46px, 9vw, 116px); font-weight: 600; line-height: 0.98; letter-spacing: -0.055em;
+  font-size: clamp(34px, 10.5vw, 116px); font-weight: 600; line-height: 0.98; letter-spacing: -0.055em;
 }
-.hero__title .split { display: block; }
+.hero__title .split { display: block; white-space: nowrap; }
 .split .char {
   display: inline-block;
   background: linear-gradient(180deg, var(--title-from) 25%, var(--title-to));
