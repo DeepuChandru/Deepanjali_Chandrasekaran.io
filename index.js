@@ -17,6 +17,26 @@
   });
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-ready')));
 
+  /* ---------- Theme toggle (circular reveal via View Transitions) ---------- */
+  const setTheme = (t) => {
+    root.dataset.theme = t;
+    try { localStorage.setItem('theme', t); } catch (e) {}
+    $('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0b0b1d' : '#f5f6f0');
+  };
+  $('#themeToggle').addEventListener('click', (e) => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    if (!document.startViewTransition || reduceMotion) return setTheme(next);
+    const x = e.clientX || innerWidth - 60;
+    const y = e.clientY || 30;
+    const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.startViewTransition(() => setTheme(next)).ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+        { duration: 600, easing: 'cubic-bezier(.22,1,.36,1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    });
+  });
+
   /* ---------- Nav: active section + mobile menu ---------- */
   const nav = $('#nav');
   const navLinks = $$('.nav__link');
@@ -306,7 +326,7 @@
 
   const tokensFor = (cat) => [
     ['k', 'SELECT'], ['', ' name, used_for\n'], ['k', 'FROM'], ['s', ` skills.${TABLES[cat]}`], ['', '\n'],
-    ['k', 'WHERE'], ['', ' proficient = '], ['k', 'TRUE'], ['', ';'],
+    ['k', 'WHERE'], ['', ' proficient = '], ['b', 'TRUE'], ['', ';'],
   ];
   const renderTokens = (tokens, n) => {
     let out = '';
@@ -317,7 +337,8 @@
       left -= part.length;
       out += cls ? `<span class="${cls}">${part}</span>` : part;
     }
-    return out;
+    // one span per line so CSS can number them
+    return out.split('\n').map((l) => `<span class="line">${l || ' '}</span>`).join('');
   };
   const runQuery = (cat) => {
     clearTimeout(typingTimer);
@@ -328,16 +349,16 @@
     sqlStatus.innerHTML = '&nbsp;';
     let n = reduceMotion ? total : 0;
     const type = () => {
-      sqlQuery.innerHTML = renderTokens(tokens, n) + (n < total ? '<span class="caret"></span>' : '');
+      sqlQuery.innerHTML = renderTokens(tokens, n).replace(/<\/span>$/, n < total ? '<span class="caret"></span></span>' : '</span>');
       if (n < total) { n += 1; typingTimer = setTimeout(type, 16 + Math.random() * 20); return; }
       sqlStatus.textContent = 'Running…';
       typingTimer = setTimeout(() => {
         const rows = SKILLS[cat];
         sqlResult.innerHTML = `<table class="rtable">
           <thead><tr><th>#</th><th>name</th><th>used_for</th></tr></thead>
-          <tbody>${rows.map((r, i) => `<tr style="--i:${i}"><td>${String(i + 1).padStart(2, '0')}</td><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody>
+          <tbody>${rows.map((r, i) => `<tr style="--i:${i}"><td>${String(i + 1).padStart(2, '0')}</td><td>${r[0]}</td><td><span class="chip">${r[1]}</span></td></tr>`).join('')}</tbody>
         </table>`;
-        sqlStatus.textContent = `${rows.length} rows · ${(4 + Math.random() * 18).toFixed(0)} ms`;
+        sqlStatus.innerHTML = `<span class="console__ok">✓ Success</span>${rows.length} rows · ${(4 + Math.random() * 18).toFixed(0)} ms`;
       }, reduceMotion ? 0 : 280);
     };
     type();
@@ -404,8 +425,7 @@
     const ctx = canvas.getContext('2d');
     const hero = canvas.closest('.hero');
     const mouse = { x: -9999, y: -9999 };
-    const rgb = '79,70,229';
-    let w, h, pts, visible = true;
+    let w, h, pts, rgb, visible = true;
 
     const resize = () => {
       const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -420,6 +440,7 @@
     };
     const draw = () => {
       if (visible) {
+        rgb = getComputedStyle(root).getPropertyValue('--canvas-rgb').trim();
         ctx.clearRect(0, 0, w, h);
         for (const p of pts) {
           p.x += p.vx; p.y += p.vy;
