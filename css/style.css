@@ -473,7 +473,6 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
 }
 .card:hover { border-color: var(--line-strong); }
 .card__label { display: block; font-size: 13px; color: var(--ink-3); margin-bottom: 18px; }
-.card--wide { grid-column: span 2; grid-row: span 2; }
 .card--half { grid-column: span 2; }
 
 .build-list { display: grid; gap: 22px; }
@@ -500,12 +499,41 @@ body { transition: background-color 0.4s var(--ease), color 0.4s var(--ease); }
 
 @media (max-width: 960px) {
   .bento { grid-template-columns: repeat(2, 1fr); }
-  .card--wide, .card--half { grid-column: span 2; grid-row: auto; }
+  .card--half { grid-column: span 2; }
 }
 @media (max-width: 480px) {
   .stat { min-height: 140px; padding: 18px; }
   .stat__num { font-size: 44px; }
 }
+
+/* ---------- Focus areas ---------- */
+.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.focus {
+  position: relative; display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: var(--r-lg);
+  background: var(--surface); border: 1px solid var(--line); overflow: hidden;
+  transition: border-color 0.3s, transform 0.4s var(--ease), box-shadow 0.4s;
+}
+.focus::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--lime);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease);
+}
+.focus:hover { border-color: var(--line-strong); transform: translateY(-4px); box-shadow: var(--shadow); }
+.focus:hover::before { transform: scaleX(1); }
+.focus__top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.focus__icon {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px;
+  background: var(--lime); color: var(--navy); box-shadow: inset 0 0 0 1px rgba(18, 17, 43, 0.1);
+}
+.focus__num { font-size: 13px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.focus__tag {
+  align-self: flex-start; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  background: var(--accent-soft); color: var(--accent);
+}
+.focus h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.25; }
+.focus p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+.focus .tags { margin-top: auto; padding-top: 8px; }
+@media (max-width: 960px) { .focus-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .focus-grid { grid-template-columns: 1fr; } .focus { padding: 20px; } }
 
 /* ---------- Tooltip & toast ---------- */
 .tooltip {

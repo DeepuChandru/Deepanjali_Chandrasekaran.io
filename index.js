@@ -46,7 +46,7 @@
       navLinks.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === `#${entry.target.id}`));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['impact', 'about', 'skills', 'experience', 'work', 'speaking', 'contact']
+  ['impact', 'about', 'focus', 'skills', 'experience', 'work', 'speaking', 'contact']
     .forEach((id) => { const s = document.getElementById(id); s && sectionObserver.observe(s); });
 
   const burger = $('#burger');

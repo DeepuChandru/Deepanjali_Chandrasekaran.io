@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css?v=2026.10.26-4" />
+    <link rel="stylesheet" href="css/style.css?v=2026.10.26-5" />
   </head>
 
   <body id="top">
@@ -46,6 +46,7 @@
         <nav class="nav__links" aria-label="Primary">
           <a href="#impact" class="nav__link">Impact</a>
           <a href="#about" class="nav__link">About</a>
+          <a href="#focus" class="nav__link">Work</a>
           <a href="#skills" class="nav__link">Skills</a>
           <a href="#experience" class="nav__link">Experience</a>
           <a href="#work" class="nav__link">Research</a>
@@ -69,6 +70,7 @@
       <nav>
         <a href="#impact">Impact</a>
         <a href="#about">About</a>
+        <a href="#focus">Work</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#work">Research</a>
@@ -236,15 +238,6 @@
           </p>
 
           <div class="bento">
-            <article class="card card--wide" data-reveal>
-              <span class="card__label">Currently building</span>
-              <ul class="build-list">
-                <li><span class="build-list__icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><strong>Voice-enabled AI chatbot</strong><p>NLP and voice interactions that streamline expense management workflows.</p></div></li>
-                <li><span class="build-list__icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg></span><div><strong>CFO Dashboard (Blazor)</strong><p>Revenue, gross margin, client concentration and compliance risk — heat maps, combo charts and KPI cards.</p></div></li>
-                <li><span class="build-list__icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><div><strong>Invoice &amp; receipt extraction</strong><p>Python, EasyOCR and GPT models producing structured JSON for finance workflows, across languages.</p></div></li>
-              </ul>
-            </article>
-
             <article class="card stat" data-reveal>
               <span class="card__label">Publications</span>
               <span class="stat__num" data-count="8">0</span>
@@ -298,6 +291,62 @@
                   <div><h3>Guinness World Record Holder</h3><p>Largest Bharatanatyam dance — 7,190 dancers, Chidambaram · Mar 2019</p></div>
                 </div>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FOCUS AREAS ============ -->
+      <section class="section" id="focus">
+        <div class="container">
+          <header class="section__head" data-reveal>
+            <span class="label">At ExpenseAnywhere</span>
+            <h2 class="section__title">What I build &amp; own.</h2>
+            <p class="section__sub">From executive dashboards to AI assistants — the products and pipelines I work on day to day.</p>
+          </header>
+
+          <div class="focus-grid">
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg></span><span class="focus__num">01</span></div>
+              <span class="focus__tag">Analytics</span>
+              <h3>CFO Dashboard &amp; Data Analytics</h3>
+              <p>Executive dashboards and KPI definitions that turn large-scale enterprise data into insight for strategic, finance-level decisions.</p>
+              <div class="tags tags--sm"><span>Blazor</span><span>Power BI</span><span>SQL</span><span>KPI design</span></div>
+            </article>
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3"/><path d="m17 16 3 3-3 3M14 19h6"/></svg></span><span class="focus__num">02</span></div>
+              <span class="focus__tag">Data engineering</span>
+              <h3>Data Engineering &amp; ETL Pipelines</h3>
+              <p>Scalable ETL pipelines that keep data clean, integrated and efficiently processed across systems.</p>
+              <div class="tags tags--sm"><span>Python</span><span>SQL</span><span>Azure Functions</span><span>Azure Blob</span></div>
+            </article>
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span><span class="focus__num">03</span></div>
+              <span class="focus__tag">Xpensa</span>
+              <h3>AI Chatbot — Xpensa</h3>
+              <p>An AI-powered chatbot using NLP and machine learning to automate customer interaction and support.</p>
+              <div class="tags tags--sm"><span>NLP</span><span>spaCy</span><span>NLTK</span><span>OpenAI GPT-4o</span></div>
+            </article>
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="focus__num">04</span></div>
+              <span class="focus__tag">EVA</span>
+              <h3>Voice Assistant — EVA</h3>
+              <p>A voice-enabled assistant with speech recognition, speech synthesis and intelligent response handling.</p>
+              <div class="tags tags--sm"><span>Speech recognition</span><span>Speech synthesis</span><span>NLP</span></div>
+            </article>
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span><span class="focus__num">05</span></div>
+              <span class="focus__tag">Product</span>
+              <h3>Purchase Anywhere Platform</h3>
+              <p>Backend services, feature development and system architecture for scalable product solutions.</p>
+              <div class="tags tags--sm"><span>Backend services</span><span>Feature development</span><span>System architecture</span></div>
+            </article>
+            <article class="focus" data-reveal>
+              <div class="focus__top"><span class="focus__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><span class="focus__num">06</span></div>
+              <span class="focus__tag">Document AI</span>
+              <h3>Invoice &amp; Receipt Extraction</h3>
+              <p>OCR + LLM pipelines that read invoices and receipts in English, Spanish and Japanese and output structured JSON.</p>
+              <div class="tags tags--sm"><span>Python</span><span>EasyOCR</span><span>OpenAI GPT-4o</span><span>JSON</span></div>
             </article>
           </div>
         </div>
@@ -665,6 +714,6 @@
     <div class="tooltip" id="tooltip" role="tooltip"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="index.js?v=2026.10.26-4"></script>
+    <script src="index.js?v=2026.10.26-5"></script>
   </body>
 </html>
